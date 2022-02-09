@@ -69,18 +69,18 @@
         </div>
             <!-- Botón Aniadir Transacción -->
         <div class="col-lg-6 d-flex justify-content-center align-self-center botones">
-          <button class="boton" type="button" id="addTrans">Nueva Transaccion</button></br>
+          <button class="boton" type="button" id="addTrans" href="#transModal" data-bs-toggle="modal">Nueva Transaccion</button></br>
         </div>
       </div>
     </div>
 
 
-    <!-- Modal Crear Transaccion -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Crear Cuenta -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Cuenta</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Transacción</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -114,46 +114,81 @@
           </div>
         </div>
       </div>
-    </div>  -->
+    </div> 
   
   
-
-  <!-- Modal Crear Cuenta -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Crear Transaccion -->
+  
+  <div class="modal fade" id="transModal" tabindex="-1" aria-labelledby="..." aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Cuenta</h5>
+          <h5 class="modal-title" id="transModalLabel">Crear Nueva Cuenta</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <table style="width: 100%;">
             <tr>
-              <td>Nombre</td>
-              <td>
-                <input type="text" id="nombreCuenta">
-              </td>
+                <td class="tituloTrans" colspan="2"">TRANSACCION</td>
+            </tr>
+            <tr class="tipoTrans">
+                <td colspan=2>
+                    <select id="tipoTrans">
+                        <option value="Ingreso"> Ingreso</option>
+                        <option value="Gastos Fijos">Gastos Fijos</option>
+                        <option value="Gastos Variables">Gastos Variables</option>
+                    </select>
+                </td>
             </tr>
             <tr>
-              <td>Slot Cuenta</td>
-              <td>
-                <select id="slotCuenta">
-                  <option value="1">Slot-01</option>
-                  <option value="2">Slot-02</option>
-                  <option value="3">Slot-03</option>
-                </select>
-              </td>
+                <td>Categoria</td>
+                <td>
+                    <select id="categoriaTrans">
+                        <option value="Agua">Agua</option>
+                        <option value="Gas">Gas</option>
+                        <option value="Electricidad">Electricidad</option>
+                        <option value="Salario">Salario</option>
+                        <option value="Prima">Prima</option>
+                        <option value="Herencia">Herencia</option>
+                        <option value="Comida">Comida</option>
+                        <option value="Viaje">Viaje</option>
+                        <option value="Entretenimiento">Entretenimiento</option>
+                        <option value="Deporte">Deporte</option>
+                        <option value="Regalo">Regalo</option>
+                        <option value="Imprevisto">Imprevisto</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Hipoteca">Hipoteca</option>
+                    </select>
+                </td>
             </tr>
             <tr>
-              <td id="errores1">
+                <td>Fecha</td>
+                <td>
+                    <input type="date" id="fechaTrans" >
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre</td>
+                <td>
+                    <input type="text" id="nombreTrans">
+                </td>
+            </tr>
+            <tr>
+                <td>Cantidad</td>
+                <td>
+                    <input type="text" id="cantidadTrans" >
+                </td>
+            </tr>
+            <tr>
+              <td id="errores">
 
               </td>
             </tr>
-          </table>
+        </table>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-warning" id="guardarCuenta">Guardar</button>
+          <button type="button" class="btn btn-warning" id="guardar">Guardar</button>
         </div>
       </div>
     </div>

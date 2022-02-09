@@ -2,36 +2,38 @@
 
 window.addEventListener('DOMContentLoaded',(event) =>{
   init()
-  // document.getElementById("guardar").addEventListener("click",(e)=>{
-  //     let valido = true;
-  //     if (confirm("¿Estas seguro de enviar el formulario?")){      
-  //         if (validarCantidadTrans()&validarFechaTrans()&validarNombreTrans()) {
-  //             addTransaccion({                                                                      
-  //             tipo : document.getElementById("tipoTrans").value,
-  //             categoria : document.getElementById('categoriaTrans').value,
-  //             cantidad : document.getElementById('cantidadTrans').value,
-  //             nombre : document.getElementById('nombreTrans').value,
-  //             fecha : document.getElementById('fechaTrans').value});
-  //         }else{
-  //             valido = false;
-  //             e.preventDefault();
-  //         }
-  //     }else{
-  //         valido = false;
-  //         e.preventDefault();
-  //     }
-  //     return valido;
-  // })
+  document.getElementById("guardar").addEventListener("click",(e)=>{
+      let valido = true; 
+      var myModalEl = document.getElementById('transModal');
+      var modal = bootstrap.Modal.getInstance(myModalEl)
+      
+        if (validarCantidadTrans()&validarFechaTrans()&validarNombreTrans()) {
+              addTransaccion({                                                                      
+              tipo : document.getElementById("tipoTrans").value,
+              categoria : document.getElementById('categoriaTrans').value,
+              cantidad : document.getElementById('cantidadTrans').value,
+              nombre : document.getElementById('nombreTrans').value,
+              fecha : document.getElementById('fechaTrans').value});
+              modal.hide();
+          }else{
+              valido = false;
+              e.preventDefault();
+          }
+      return valido;
+  })
   document.getElementById("guardarCuenta").addEventListener("click",(e)=>{
-    let valido = true;      
+    let valido = true;
+    var myModalEl = document.getElementById('exampleModal');
+    var modal = bootstrap.Modal.getInstance(myModalEl)      
       if (validarNombreCuenta()) {
             addCuenta({                                                                      
-            ingreso : 10,
-            gastoFijo : 10,
-            gastoVariable : 10,
+            ingreso : 0,
+            gastoFijo : 0,
+            gastoVariable : 0,
             listaTrans : [],
             slot:document.getElementById("slotCuenta").value,
             nombreCuenta :document.getElementById("nombreCuenta").value});
+            modal.hide();
         }else{
             valido = false;
             e.preventDefault();
@@ -148,17 +150,17 @@ function mostrarNombreCuenta() {
   tituloCuenta_DOM.innerHTML=nombreCuenta;
 }
 
-function mostrarVentanaTrans() {
-  let ventana = document.getElementById("contenedorTransaccion");
-  ventana.classList.remove("ocultar");
-  ventana.classList.add("contenedorTransaccion");
-}
-function ocultarVentanaTrans() {
-  let ventana = document.getElementById("contenedorTransaccion");
-  ventana.classList.remove("contenedorTransaccion");
-  ventana.classList.add("ocultar");
+// function mostrarVentanaTrans() {
+//   let ventana = document.getElementById("contenedorTransaccion");
+//   ventana.classList.remove("ocultar");
+//   ventana.classList.add("contenedorTransaccion");
+// }
+// function ocultarVentanaTrans() {
+//   let ventana = document.getElementById("contenedorTransaccion");
+//   ventana.classList.remove("contenedorTransaccion");
+//   ventana.classList.add("ocultar");
   
-}
+// }
 
 //Funcion hacer transaccion 
 
@@ -179,8 +181,8 @@ function ocultarVentanaTrans() {
       cuentaLocal.listaTrans.push(transaccion);
       localStorage.setItem(slot, JSON.stringify(cuentaLocal));
       pintaPastel(cuentaLocal.listaTrans);
-      ocultarVentanaTrans();
-      document.location.reload(true);
+      // ocultarVentanaTrans();
+      // document.location.reload(true);
     }
   }
 
