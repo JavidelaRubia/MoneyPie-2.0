@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;  
+}
+body{
+    background: radial-gradient(circle, rgba(242,242,242,1) 0%, rgba(255,255,255,1) 100%);
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    color: #323d40;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container{
+    height: 400px;
+
+}
+.wrapper{
+    margin-top: 80px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    float: left;
+}
+.chart-wrapper{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+.opciones{
+    display: flex;
+    justify-content:center;
+    flex-flow: column;
+    width: 200px;
+    float: left;
+}
+
+.ocultar{
+    display: none;
+}
+.contenedorTransaccion{
+    background: rgba(33, 41, 52, 0.616);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+}
+
+.ventanaAddTransaccion{
+    font-size: 15px;
+    width: 400px;
+    height: 500px;
+    margin-top: 200px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+}
+.ventanaAddTransaccion td{
+    padding: 16px;
+}
+.contenedorCreadorCuenta{
+    background: rgba(33, 41, 52, 0.616);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+}
+.ventanaCreadorCuenta{
+    font-size: 15px;
+    width: 400px;
+    height: 250px;
+    margin-top: 200px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+.tituloCuenta{
+    background-color: #e23e31;
+    text-align: center;
+    font-size: 23px;
+}
+.ventanaCreadorCuenta td{
+    padding: 16px;
+    font-weight: bolder;
+}
+.usuario{
+    height: 200px;
+    width: 330px;
+    margin-top: 10px;
+}
+.guardar{
+    width: 100px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 40px;
+}
+.tituloTrans{
+    background-color: #e23e31;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bolder;
+}
+.tipoTrans{
+    text-align: center;
+    
+    
+}
+.tipoTrans select{
+    text-align: center;
+    width: 350px;
+    background-color: #e23d3193;
+    color: #323d40;
+    font-weight: bold;
+    
+}
+.error{
+    background-color: #e23e31;
+    width: 400px;
+    position: absolute;
+    margin-top: 500px;
+    color: #323d40;
+    font-weight: bold;
+    padding: 10px;
+}
+.errorCuenta{
+    background-color: #e23e31;
+    width: 400px;
+    position: absolute;
+    margin-top: 250px;
+    color: #323d40;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.botones{
+    float: right;   
+    margin-right: 20%;
+    margin-top: 230px;
+}
+
+.boton {
+    width: 180px;
+    margin-bottom: 20px;
+    height: 180px;
+    cursor: pointer;
+    border: 2px solid #323d40;
+    outline: none;
+    transition: 1s ease-in-out;
+    border-radius: 100%;
+    box-shadow: 2px 10px 20px 2px black;
+    font-size: 23px;
+    font-weight: bold;
+    background: #e23e31;
+  }
+  
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+    border-radius: 100%;
+  }
+  
+  .boton:hover {
+    transition: 0.7s ease-in-out;
+    background: #f11505;  
+    box-shadow: 2px 0px 5px 2px black;
+    }
+    
+  .boton:hover svg {
+    stroke-dashoffset: -480;
+    border-radius: 100%;
+  }
+  
+  .boton button {
+    
+    font-size: 18px;
+    font-weight: 100;
+    border-radius: 100%;
+  }
+  nav{
+    background: #e23e31;
+    height: 400px;
+      width: 70px ;
+      float: left;
+      border-radius: 0px 2px 10px 0px;
+      display: flex;
+      justify-content: space-evenly;
+      flex-flow: column;
+      padding: 7px;
+      box-shadow: 2px 2px 20px 2px black;
+      
+  }
+  nav:hover{
+    transition: 0.7s ease-in-out;
+    box-shadow: 1px 0px 1px 1px black;
+    cursor: pointer;
+    background: #f11505; 
+  }
+  #tipoCuenta{
+      height: 30px;
+  }
+  #mostrarLista{
+    height: 30px;
+}
+.trans{
+    background-color: #fff;
+    color: #323d40;
+}
+.datos{
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.datos th{
+    border: 2px solid rgba(66, 66, 66, 0.178);
+    border-collapse: collapse;
+    text-align: center;
+}
+.datos p{
+    padding: 1px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.datos td{
+    background-color: #b1b1b141;
+}
+.datos tr:hover{
+    background-color: #e23d3181;
+}
+.nombreCuenta{
+    margin-top: 260px;
+    margin-left: 100px;
+    font-size: 50px;
+    width: 700px;
+}
+
+.selectSlot{
+    margin-left: 110px;
+}
+.selectSlot select{
+    width: 100px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    background: #323d40; 
+    width: 100%;
+}
+footer h3{
+    margin-top: 30px;
+    font-weight: bold;
+    color: azure;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+footer img{
+    float: left;
+}

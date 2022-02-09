@@ -1,0 +1,45 @@
+
+header:hover{
+  transition: 0.3s ease-in-out;
+  box-shadow: 1px 0px 1px 1px rgb(36, 36, 36);
+  cursor: pointer;
+}
+.selectorSlot{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 20px;
+    border: 0;
+    background-color: #2b3035;
+    width: 120px;
+    cursor: pointer;
+
+}
+.nombreCuenta{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+.chart-wrapper{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+.slotsBanner{
+    background-color: #2b3035;
+    box-shadow: 1px 0px 1px 1px rgb(49, 49, 49);
+}
+
+.boton {
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    border: 2px solid #323d40;
+    outline: none;
+    border-radius: 100%;
+    box-shadow: 1px 0px 1px 1px rgb(49, 49, 49);
+    font-size: 23px;
+    font-weight: bold;
+    background: #2b3035;
+    color: rgb(255, 255, 255);
+  }

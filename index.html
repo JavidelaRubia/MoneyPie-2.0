@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>MoneyPie-2.0</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/styleMoneyPie.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <header class="site-header sticky-top py-3 bg-dark justify-content-center">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <b><a class="navbar-brand" href="#">Money Pie</a></b>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+          aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#exampleModal" data-bs-toggle="modal">Crear Cuenta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cuentas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-fluid py-1 slotsBanner">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 ">
+        <article class='selectSlot'>
+          <select id="selectSlot" class="selectorSlot">
+            <option value="1">Slot-01</option>
+            <option value="2">Slot-02</option>
+            <option value="3">Slot-03</option>
+          </select>
+        </article>
+      </div>
+        <div class="col-md-6 col-sm-12">
+        <article class='nombreCuenta ' id="tituloCuenta"></article>
+        </div>
+    </div>
+  </div>
+
+  <!-- Grafico Donut -->
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div id="chart-wrapper" class="col-lg-6 chart-wrapper">
+          <canvas id="myChart" class="pie"></canvas>
+        </div>
+            <!-- Botón Aniadir Transacción -->
+        <div class="col-lg-6 d-flex justify-content-center align-self-center botones">
+          <button class="boton" type="button" id="addTrans">Nueva Transaccion</button></br>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal Crear Transaccion -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Cuenta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table style="width: 100%;">
+              <tr>
+                <td>Nombre</td>
+                <td>
+                  <input type="text" id="nombreCuenta">
+                </td>
+              </tr>
+              <tr>
+                <td>Slot Cuenta</td>
+                <td>
+                  <select id="slotCuenta">
+                    <option value="1">Slot-01</option>
+                    <option value="2">Slot-02</option>
+                    <option value="3">Slot-03</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="errores1">
+  
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-warning" id="guardarCuenta">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+  
+  
+
+  <!-- Modal Crear Cuenta -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Nueva Cuenta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table style="width: 100%;">
+            <tr>
+              <td>Nombre</td>
+              <td>
+                <input type="text" id="nombreCuenta">
+              </td>
+            </tr>
+            <tr>
+              <td>Slot Cuenta</td>
+              <td>
+                <select id="slotCuenta">
+                  <option value="1">Slot-01</option>
+                  <option value="2">Slot-02</option>
+                  <option value="3">Slot-03</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td id="errores1">
+
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-warning" id="guardarCuenta">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid py-3 bg-dark mt-auto">
+    <div class="row">
+      <div class="col-12 col-md" style="text-align: center;">
+        <img src="IMG/logoPieSombra.png" alt="logo" width="120px">
+        <small class="d-block mb-3 text-muted">&copy;Javier de la Rubia Sánchez</small>
+      </div>
+      <div class="col-4 col-md collapse d-md-block">
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="#">Resource name</a></li>
+          <li><a class="link-secondary" href="#">Resource</a></li>
+          <li><a class="link-secondary" href="#">Another resource</a></li>
+          <li><a class="link-secondary" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-4 col-md collapse d-md-block">
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="#">Business</a></li>
+          <li><a class="link-secondary" href="#">Education</a></li>
+          <li><a class="link-secondary" href="#">Government</a></li>
+          <li><a class="link-secondary" href="#">Gaming</a></li>
+        </ul>
+      </div>
+      <div class="col-4 col-md collapse d-md-block">
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="#">Team</a></li>
+          <li><a class="link-secondary" href="#">Locations</a></li>
+          <li><a class="link-secondary" href="#">Privacy</a></li>
+          <li><a class="link-secondary" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="JS/bootstrap.bundle.min.js"></script>
+  <script src="JS/script.js"></script>
+</body>
+
+</html>
