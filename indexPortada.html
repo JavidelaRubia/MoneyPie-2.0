@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>MoneyPie-2.0</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/login.css">
+</head>
+
+<body class="bg-dark d-flex flex-column min-vh-100">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <img src="IMG/logoPie.png" alt="" width="300px">
+        </div>
+        <h1>Money Pie</h1>
+        <hr>
+        <div class="col-12 d-flex justify-content-center">
+            
+            <table>
+                <tr>
+                  <td>Usuario</td>
+                  <td>
+                    <input type="text" id="usuario">
+                  </td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td>
+                      <input type="text" id="password">
+                    </td>
+                  </tr>
+                <tr>
+                  <td colspan="2" style="text-align: center;">
+                    <button type="button" class="btn btn-light boton" id="login"><b>Guardar</b></button>
+                  </td>
+                </tr>
+                <tr>
+                    <td id="erroresLogin">
+                      
+                    </td>
+                  </tr>
+              </table>
+        </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid py-3 bg-dark mt-auto">
+    <div class="row">
+      <div class="col-12 col-md" style="text-align: center;">
+        <small class="d-block mb-3 text-muted">&copy;Javier de la Rubia Sánchez</small>
+      </div>
+    </div>
+  </footer>
+  <script src="JS/login.js"></script>
+  <script src="JS/bootstrap.bundle.min.js"></script>
+  
+</body>
+
+</html>

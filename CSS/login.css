@@ -1,0 +1,29 @@
+table{
+    color: aliceblue;
+    font-size: 20px;
+    
+}
+td{
+    padding: 3px;
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+    font-size: 47px;
+}
+input{
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(184, 184, 184);
+}
+.boton{
+    text-align: center;
+    width: 150px;
+}
+p{
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2px;
+}

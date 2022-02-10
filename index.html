@@ -64,11 +64,14 @@
   <!-- Grafico Donut -->
     <div class="container-fluid py-3">
       <div class="row">
-        <div id="chart-wrapper" class="col-lg-6 chart-wrapper">
+        <div class="col-4  col-md collapse d-lg-block">
+
+        </div>
+        <div id="chart-wrapper" class="col-lg-4 chart-wrapper">
           <canvas id="myChart" class="pie"></canvas>
         </div>
             <!-- Botón Aniadir Transacción -->
-        <div class="col-lg-6 d-flex justify-content-center align-self-center botones">
+        <div class="col-lg-4 d-flex justify-content-center align-self-center botones">
           <button class="boton" type="button" id="addTrans" href="#transModal" data-bs-toggle="modal">Nueva Transaccion</button></br>
         </div>
       </div>
@@ -115,8 +118,6 @@
         </div>
       </div>
     </div> 
-  
-  
 <!-- Modal Crear Transaccion -->
   
   <div class="modal fade" id="transModal" tabindex="-1" aria-labelledby="..." aria-hidden="true">
@@ -196,7 +197,7 @@
 
   <footer class="container-fluid py-3 bg-dark mt-auto">
     <div class="row">
-      <div class="col-12 col-md" style="text-align: center;">
+      <div class="col-12 col-md" style="text-align: center;"> 
         <img src="IMG/logoPieSombra.png" alt="logo" width="120px">
         <small class="d-block mb-3 text-muted">&copy;Javier de la Rubia Sánchez</small>
       </div>
