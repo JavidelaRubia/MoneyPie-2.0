@@ -205,7 +205,11 @@ function imprimeErrores() {
       }
   });
   errores_DOM.innerHTML="";
-  errores_DOM.innerHTML=text;     
+  errores_DOM.innerHTML=text;
+  $(document).ready(function(){
+    $("#errores").hide();
+    $("#errores").fadeIn(1000);
+  });
 }
 
 let errores1_DOM=document.getElementById("errores1");
@@ -221,8 +225,14 @@ function imprimeErroresCuenta() {
       }
   });
   errores1_DOM.innerHTML="";
-  errores1_DOM.innerHTML=text;     
+  errores1_DOM.innerHTML=text;
+  $(document).ready(function(){
+    $("#errores1").hide();
+    $("#errores1").fadeIn(1500);
+  });
 }
+
+
 
 //---------------------------
 //VALIDACIONES DEL FORMULARIO

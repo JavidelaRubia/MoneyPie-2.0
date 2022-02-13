@@ -1,99 +1,64 @@
 window.addEventListener('DOMContentLoaded',(event) =>{
     init();
-    document.getElementById("crearCuenta").addEventListener("click",()=>{iniciarlizarDatos()})
-    document.getElementById("guardarCuenta").addEventListener("click",(e)=>{
-        let valido = true;
-        if (confirm("¿Sustituiras esta cuenta,estas seguro? Si necesitas mas Slots, activa premium")){      
-            if (validarNombreCuenta()) {
-                addCuenta({                                                                      
-                ingreso : 0,
-                gastoFijo : 0,
-                gastoVariable : 0,
-                listaTrans : [],
-                slot:document.getElementById("slotCuenta").value,
-                nombreCuenta :document.getElementById("nombreCuenta").value});
-            }else{
-                valido = false;
-                e.preventDefault();
-            }
-        }else{
-            valido = false;
-            e.preventDefault();
-        }
-        return valido;
-    })
     document.getElementById("selectSlot").addEventListener("change",()=>{mostrarListaTransacciones()})
+    document.getElementById("guardarCuenta").addEventListener("click",(e)=>{
+      let valido = true;
+      var myModalEl = document.getElementById('exampleModal');
+      var modal = bootstrap.Modal.getInstance(myModalEl)      
+        if (validarNombreCuenta()) {
+              addCuenta({                                                                      
+              ingreso : 0,
+              gastoFijo : 0,
+              gastoVariable : 0,
+              listaTrans : [],
+              slot:document.getElementById("slotCuenta").value,
+              nombreCuenta :document.getElementById("nombreCuenta").value});
+              modal.hide();
+          }else{
+              valido = false;
+              e.preventDefault();
+          }
+      return valido;
+  })
     
 });
+
 function init() {
     mostrarListaTransacciones();
 }
-let cuenta_DOM;
-  function iniciarlizarDatos() {
-      mostrarVentanaCuenta();
-  };
- const cuenta={
-      ingreso : 0,
-      gastoFijo : 0,
-      gastoVariable : 0,
-      listaTrans : [],
-      nombreCuenta :"CuentaPrueba",
-      slot:""
-  };
 
-  function mostrarVentanaCuenta() {
-    let ventana = document.getElementById("contenedorCreadorCuenta");
-    ventana.classList.remove("ocultar");
-    ventana.classList.add("contenedorCreadorCuenta");
-  }
-  function ocultarVentanaCuenta() {
-    let ventana = document.getElementById("contenedorCreadorCuenta");
-    ventana.classList.remove("contenedorCreadorCuenta");
-    ventana.classList.add("ocultar");
-    
-  }
-  function validarNombreCuenta() {
-    let valido=true;
-    if (document.getElementById("nombreCuenta").value==""||!(isNaN(document.getElementById("nombreCuenta").value))) {
-      errores.nombre=" formato incompatible";
-      valido=false;
-    }else{
-      errores.nombre="";
-    }
-    imprimeErrores();
-    return valido;
-}
-let errores_DOM=document.getElementById("errores");
-const errores={
-  nombre:""
+let errores1_DOM=document.getElementById("errores1");
+const errores1={
+  nombre:"",
 };
 
-function imprimeErrores() {
+function imprimeErroresCuenta() {
   let text = '';
-  Object.keys(errores).forEach((key)=>{
-      if(errores[key]){
-          text += `<p> ${key}: ${errores[key]}</p>`;
+  Object.keys(errores1).forEach((key)=>{
+      if(errores1[key]){
+          text += `<p class="bg-danger"> ${key}: ${errores1[key]}</p>`;
       }
   });
-  errores_DOM.innerHTML="";
-  errores_DOM.innerHTML=text;     
+  errores1_DOM.innerHTML="";
+  errores1_DOM.innerHTML=text;     
 }
 
 function addCuenta(cuenta) {
-    localStorage.setItem(cuenta.slot, JSON.stringify(cuenta));
-    ocultarVentanaCuenta();
-    document.location.reload(true);
-  }
+  localStorage.setItem(cuenta.slot, JSON.stringify(cuenta));
+  // ocultarVentanaCuenta();
+  document.location.reload(true);
+}
+
 function totalCuenta() {
-    let slot= document.getElementById("selectSlot").value;
-    const cuentaLocal = JSON.parse(localStorage.getItem(slot));
-    let vIngreso= cuentaLocal.ingreso;
-    let vGastoFijo=cuentaLocal.gastoFijo;
-    let vGastoVar=cuentaLocal.gastoVariable;
-    let total=0;
-    total=vIngreso-vGastoFijo-vGastoVar;
-    return total;
-  }
+  let slot= document.getElementById("selectSlot").value;
+  const cuentaLocal = JSON.parse(localStorage.getItem(slot));
+  let vIngreso= cuentaLocal.ingreso;
+  let vGastoFijo=cuentaLocal.gastoFijo;
+  let vGastoVar=cuentaLocal.gastoVariable;
+  let total=0;
+  total=vIngreso-vGastoFijo-vGastoVar;
+  return total;
+}
 function mostrarListaTransacciones() {
     let slot= document.getElementById("selectSlot").value;
     let cuenta = JSON.parse(localStorage.getItem(slot));
@@ -129,10 +94,10 @@ function mostrarListaTransacciones() {
                  </tr>`;
         (cuenta.listaTrans).forEach((key)=>{
           if (key.tipo=='Ingreso') {
-            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #74c355">${key.cantidad}</p></td><td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td> </tr>`;
+            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #74c355; font-size: 20px; ">${key.cantidad}</p></td><td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td> </tr>`;
             i=i+1;
         }else{
-            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #c03a3a">${key.cantidad}</p></td> <td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td></tr>`;
+            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #c03a3a; font-size: 20px;">${key.cantidad}</p></td> <td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td></tr>`;
             i=i+1;
             };
         
@@ -142,9 +107,9 @@ function mostrarListaTransacciones() {
         listaTransacciones_DOM.innerHTML=text; 
     }
     
-  }
+}
 
-  function eliminarTrans(indice) {
+function eliminarTrans(indice) {
       if (confirm("¿Quieres eliminar esta transaccion?")){
         let slot= document.getElementById("selectSlot").value;
         let cuenta = JSON.parse(localStorage.getItem(slot));
@@ -162,5 +127,16 @@ function mostrarListaTransacciones() {
         localStorage.setItem(slot, JSON.stringify(cuenta));
         mostrarListaTransacciones();
       }
-    }
-  
+}
+
+function validarNombreCuenta() {
+  let valido=true;
+  if (document.getElementById("nombreCuenta").value==""||!(isNaN(document.getElementById("nombreCuenta").value))) {
+    errores1.nombre=" formato incompatible";
+    valido=false;
+  }else{
+    errores1.nombre="";
+  }
+  imprimeErroresCuenta();
+  return valido;
+}
