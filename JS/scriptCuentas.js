@@ -76,7 +76,7 @@ function mostrarListaTransacciones() {
         <th>Fecha</th>
         <th>Cantidad</th>
         <th>Editar</th>
-        </tr>`;
+        </tr><tbody>`;
         let listaTransacciones_DOM = document.getElementById("datos");
         listaTransacciones_DOM.innerHTML="";
         listaTransacciones_DOM.innerHTML=text;
@@ -84,25 +84,26 @@ function mostrarListaTransacciones() {
         nombreCuenta=cuenta.nombreCuenta;
         nombreCuenta_DOM.innerHTML="";
         nombreCuenta_DOM.innerHTML="Cuenta: "+nombreCuenta+" "+totalCuenta()+"€";
-        let text=`<tr>
+        let text=`<thead><tr>
                     <th>Tipo Transaccion</th>
                     <th>Categoria</th>
                     <th>Nombre</th>
                     <th>Fecha</th>
                     <th>Cantidad</th>
                     <th>Editar</th>
-                 </tr>`;
+                 </tr></thead><tbody>`;
         (cuenta.listaTrans).forEach((key)=>{
           if (key.tipo=='Ingreso') {
-            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #74c355; font-size: 20px; ">${key.cantidad}</p></td><td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td> </tr>`;
+            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #74c355; font-size: 15px;text-align: center; ">${key.cantidad}</p></td><td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td> </tr>`;
             i=i+1;
         }else{
-            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #c03a3a; font-size: 20px;">${key.cantidad}</p></td> <td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td></tr>`;
+            text +=`<tr> <td><p>${key.tipo}</p></td> <td><p>${key.categoria}</p></td> <td><p>${key.nombre}</p></td> <td><p>${key.fecha}</p></td> <td><p style="color: #c03a3a; font-size: 15px;text-align: center;">${key.cantidad}</p></td> <td><input type="button" id="eliminarTrans" value="Eliminar" onclick="eliminarTrans(${i})" class="guardar"></td></tr>`;
             i=i+1;
             };
         
         });
         let listaTransacciones_DOM = document.getElementById("datos");
+        text += "</tbody>"
         listaTransacciones_DOM.innerHTML="";
         listaTransacciones_DOM.innerHTML=text; 
     }

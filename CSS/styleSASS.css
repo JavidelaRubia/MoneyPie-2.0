@@ -52,10 +52,13 @@ header:hover {
 
 table {
   font-weight: bold;
+  
 }
-
+td{
+  font-size: 15px;
+}
 th {
-  font-size: 23px;
+  font-size: 15px;
   font-weight: bold;
   border-bottom: 2px solid #323d40;
   color: #323d40;
@@ -68,4 +71,5 @@ th {
 .error{
   box-shadow: 0px 1px 3px 1px red;
   color: aliceblue;
+  
 }
