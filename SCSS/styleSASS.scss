@@ -1,0 +1,67 @@
+//Autor: Javier de la Rubia Sánchez
+
+$sombra:1px 0px 1px 1px rgb(49, 49, 49);
+$letraClara:rgb(255, 255, 255);
+
+@mixin tipoLetra(){                    
+    font-size: 23px;
+    font-weight: bold;
+}
+@mixin extension($altura,$ancho){                    
+    width: $ancho;
+    height: $altura;
+}
+
+header:hover{
+    transition: 0.3s ease-in-out;
+    box-shadow: $sombra;
+    cursor: pointer;
+  }
+  .selectorSlot{
+      color: $letraClara;
+      font-weight: bolder;
+      font-size: 20px;
+      border: 0;
+      background-color: #2b3035;
+      width: 120px;
+      cursor: pointer;
+  
+  }
+  .nombreCuenta{
+    color: $letraClara;
+      font-weight: bolder;
+      font-size: 20px;
+      text-align: center;
+  }
+  .chart-wrapper{
+      @include extension(500px,500px);
+      margin: 0 auto;
+  }
+  .slotsBanner{
+      background-color: #2b3035;
+      box-shadow: $sombra;
+  }
+  
+  .boton {
+    @include extension(180px,180px);
+    cursor: pointer;
+    border: 2px solid #323d40;
+    outline: none;
+    border-radius: 100%;
+    box-shadow: $sombra;
+    @include tipoLetra();
+    background: #2b3035;
+    color: $letraClara;
+  }
+  table{
+      font-weight: bold;
+      
+  }
+  th{
+    @include tipoLetra();
+    border-bottom: 2px solid #323d40;
+    color: #323d40;
+  }
+  .nombreCuenta{
+    color: #f36746;
+  }

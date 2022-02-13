@@ -15,11 +15,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
         let text = "";
         Object.keys(errores).forEach((key) => {
           if (errores[key]) {
-            text += `<p class="bg-danger">${errores[key]}</p>`;
+            text += `<p class="bg-danger" style="box-shadow: 0px 2px 10px 1px red;">${errores[key]}</p>`;
           }
         });
         errores_DOM.innerHTML = "";
         errores_DOM.innerHTML = text;
+        $(document).ready(function(){
+          $("#erroresLogin").hide();
+          $("#erroresLogin").fadeIn(1500);
+        });
     }
 
     console.log("Hola");
@@ -40,7 +44,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         errores.credencial += "Login errorneo";
         
       } else {
-        window.location.href = "index.html";
+        window.location.href = "PAGES/inicio.html";
       }
     }
     imprimeErrores();

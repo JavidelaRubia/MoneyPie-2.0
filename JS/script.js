@@ -201,7 +201,7 @@ function imprimeErrores() {
   let text = '';
   Object.keys(errores).forEach((key)=>{
       if(errores[key]){
-          text += `<p class="bg-danger"> ${key}: ${errores[key]}</p>`;
+          text += `<p class="bg-danger error"> ${key}: ${errores[key]}</p>`;
       }
   });
   errores_DOM.innerHTML="";
@@ -221,7 +221,7 @@ function imprimeErroresCuenta() {
   let text = '';
   Object.keys(errores1).forEach((key)=>{
       if(errores1[key]){
-          text += `<p class="bg-danger"> ${key}: ${errores1[key]}</p>`;
+          text += `<p class="bg-danger error"> ${key}: ${errores1[key]}</p>`;
       }
   });
   errores1_DOM.innerHTML="";

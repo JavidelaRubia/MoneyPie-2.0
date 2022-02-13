@@ -110,7 +110,6 @@ function mostrarListaTransacciones() {
 }
 
 function eliminarTrans(indice) {
-      if (confirm("¿Quieres eliminar esta transaccion?")){
         let slot= document.getElementById("selectSlot").value;
         let cuenta = JSON.parse(localStorage.getItem(slot));
         let dato = cuenta.listaTrans[indice].tipo;
@@ -126,7 +125,6 @@ function eliminarTrans(indice) {
         cuenta.listaTrans.splice(indice,1);
         localStorage.setItem(slot, JSON.stringify(cuenta));
         mostrarListaTransacciones();
-      }
 }
 
 function validarNombreCuenta() {
